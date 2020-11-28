@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
+  final String image;
+
+  const DetailPage({Key key, this.image}) : super(key: key);
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: new AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Color(0xffffffff)),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue[900],
+        elevation: 0.0,
+        title: new Text("Event Details",
+            style: const TextStyle(
+                color: const Color(0xffffffff),
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.normal,
+                fontSize: 19.0)),
+      ),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -17,32 +40,24 @@ class DetailPage extends StatelessWidget {
                       top: 0,
                       left: 0,
                       right: 0,
-                      bottom: 60,
+                      bottom: 90,
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/one.jpg'),
+                            image: AssetImage(widget.image),
                             fit: BoxFit.fill,
                           ),
                         ),
-                        // color: Colors.lightBlue[100],
-                        child: Column(
-                          children: [
-                              // backgroundColor: Colors.lightBlue[100],
-                              
-                              IconButton(
-                                icon: Icon(Icons.arrow_back),
-                                onPressed: () => Navigator.pop(context),
-                                iconSize: 30.0,
-                                color: Colors.lightBlue[900],
-                              ),
-                            
-                            // Container(
-                            //   child: Image.asset('assets/images/one.jpg',
-                            //       width: 340, height: 190, fit: BoxFit.cover),
-                            // )
-                          ],
-                        ),
+                        // child: Column(
+                        //   children: [
+                        //     IconButton(
+                        //       icon: Icon(Icons.arrow_back),
+                        //       onPressed: () => Navigator.pop(context),
+                        //       iconSize: 30.0,
+                        //       color: Colors.lightBlue[900],
+                        //     ),
+                        //   ],
+                        // ),
                       ),
                     ),
                     Positioned(
@@ -126,10 +141,11 @@ class DetailPage extends StatelessWidget {
                       title: Text(
                         " Pooja Jamdhade ",
                         style: TextStyle(
+                          fontWeight: FontWeight.bold,
                             fontSize: 20, color: Colors.lightBlue[900]),
                       ),
                       subtitle: Text(
-                        "Event Head",
+                        " Event Head",
                         style: TextStyle(fontSize: 17, color: Colors.grey),
                       ),
                     ),
@@ -142,31 +158,59 @@ class DetailPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 19, color: Colors.lightBlue[900]),
                       ),
-                      
                     ),
                     SizedBox(height: 20.0),
-                    SizedBox(
-                      width: 200,
-                      child: RaisedButton(
-                        elevation: 5.0,
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/login');
-                        },
-                        padding: EdgeInsets.all(15.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: Colors.lightBlue[900],
-                        child: Text(
-                          'Participate',
-                          style: TextStyle(
-                            color: Colors.white,
-                            letterSpacing: 1.5,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            // fontFamily: 'OpenSans',
+                    Container(
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 90.0),
+                            child: Center(
+                              child: RaisedButton(
+                                elevation: 5.0,
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed('/login');
+                                },
+                                padding: EdgeInsets.all(15.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
+                                color: Colors.lightBlue[900],
+                                child: Text(
+                                  'Participate',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    letterSpacing: 1.5,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                    // fontFamily: 'OpenSans',
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),                      
+                          
+                          Padding(
+                            padding: EdgeInsets.only(left: 50.0),
+                            child: Container(
+                              
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                // color: Colors.blue,
+                                border: Border.all(
+                                  width: 1, color: Colors.grey
+                                ),
+                              ),
+                              child: IconButton(
+                                  iconSize: 35,
+                                  color: Colors.redAccent[400],
+                                  icon: Icon(Icons.favorite),
+                                  tooltip: 'Add to Favorite',
+                                  onPressed: () {}),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                     SizedBox(height: 30.0)

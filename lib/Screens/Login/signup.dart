@@ -92,7 +92,7 @@ class _SignupState extends State<Signup> {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.name,
             style: TextStyle(
               color: Colors.white,
               // fontFamily: 'OpenSans',
@@ -105,6 +105,78 @@ class _SignupState extends State<Signup> {
                 color: Colors.white,
               ),
               hintText: 'Enter your Name',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNoTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Phone No.',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.phone,
+            style: TextStyle(
+              color: Colors.white,
+              // fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              hintText: 'Enter your Phone no.',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAddTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Address',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.multiline,
+            minLines: 1,
+            maxLines: 5,
+            style: TextStyle(
+              color: Colors.white,
+              // fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              hintText: 'Enter your Address',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -189,6 +261,10 @@ class _SignupState extends State<Signup> {
                       ),
                       SizedBox(height: 20.0),
                       _buildNameTF(),
+                      SizedBox(height: 20.0),
+                      _buildNoTF(),
+                      SizedBox(height: 20.0),
+                      _buildAddTF(),
                       SizedBox(height: 20.0),
                       _buildEmailTF(),
                       SizedBox(height: 20.0),

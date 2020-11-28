@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          Navigator.of(context).pushReplacementNamed('/homepage');
+          Navigator.of(context).pushReplacementNamed('/nav');
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
@@ -114,7 +114,6 @@ class _LoginScreenState extends State<LoginScreen> {
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-            // fontFamily: 'OpenSans',
           ),
         ),
       ),

@@ -1,9 +1,9 @@
 import 'package:Eve/Screens/Home/Animation.dart';
 import 'package:Eve/Screens/Home/Detail.dart';
-import 'package:Eve/Screens/Profile/constants.dart';
+// import 'package:Eve/Screens/Profile/constants.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class LHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
